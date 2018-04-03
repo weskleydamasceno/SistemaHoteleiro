@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelSistemaHoteleiro" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelSistemaHoteleiroContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PessoaSet" EntityType="ModelSistemaHoteleiro.Pessoa" />
+    <EntitySet Name="ClienteTelefoneSet" EntityType="ModelSistemaHoteleiro.ClienteTelefone" />
+    <AssociationSet Name="ClienteClienteTelefone" Association="ModelSistemaHoteleiro.ClienteClienteTelefone">
+      <End Role="Cliente" EntitySet="PessoaSet" />
+      <End Role="ClienteTelefone" EntitySet="ClienteTelefoneSet" />
+    </AssociationSet>
+    <EntitySet Name="CheckinCheckoutSet" EntityType="ModelSistemaHoteleiro.CheckinCheckout" />
+    <EntitySet Name="ReservaSet" EntityType="ModelSistemaHoteleiro.Reserva" />
+    <AssociationSet Name="ReservaCheckinCheckout" Association="ModelSistemaHoteleiro.ReservaCheckinCheckout">
+      <End Role="Reserva" EntitySet="ReservaSet" />
+      <End Role="CheckinCheckout" EntitySet="CheckinCheckoutSet" />
+    </AssociationSet>
+    <EntitySet Name="TipoReservaSet" EntityType="ModelSistemaHoteleiro.TipoReserva" />
+    <EntitySet Name="LojaSet" EntityType="ModelSistemaHoteleiro.Loja" />
+    <EntitySet Name="UsuarioSet" EntityType="ModelSistemaHoteleiro.Usuario" />
+    <AssociationSet Name="LojaUsuario" Association="ModelSistemaHoteleiro.LojaUsuario">
+      <End Role="Loja" EntitySet="LojaSet" />
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="Cpf" Type="String" Nullable="false" />
+    <Property Name="DataNascimento" Type="String" Nullable="false" />
+    <Property Name="Rua" Type="String" Nullable="false" />
+    <Property Name="Bairro" Type="String" Nullable="false" />
+    <Property Name="Cidade" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente" BaseType="ModelSistemaHoteleiro.Pessoa">
+    <Property Name="Email" Type="String" Nullable="false" />
+    <NavigationProperty Name="ClienteTelefone" Relationship="ModelSistemaHoteleiro.ClienteClienteTelefone" FromRole="Cliente" ToRole="ClienteTelefone" />
+  </EntityType>
+  <EntityType Name="Funcionario" BaseType="ModelSistemaHoteleiro.Pessoa">
+    <Property Name="Salario" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClienteTelefone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Telefone" Type="String" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="ModelSistemaHoteleiro.ClienteClienteTelefone" FromRole="ClienteTelefone" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="ClienteClienteTelefone">
+    <End Type="ModelSistemaHoteleiro.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="ModelSistemaHoteleiro.ClienteTelefone" Role="ClienteTelefone" Multiplicity="*" />
+  </Association>
+  <EntityType Name="CheckinCheckout">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataHoraCheckin" Type="String" Nullable="false" />
+    <Property Name="DataHoraCheckout" Type="String" Nullable="false" />
+    <Property Name="TotalPagar" Type="String" Nullable="false" />
+    <NavigationProperty Name="Reserva" Relationship="ModelSistemaHoteleiro.ReservaCheckinCheckout" FromRole="CheckinCheckout" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataHoraInicio" Type="String" Nullable="false" />
+    <Property Name="DataHoraFinal" Type="String" Nullable="false" />
+    <NavigationProperty Name="CheckinCheckout" Relationship="ModelSistemaHoteleiro.ReservaCheckinCheckout" FromRole="Reserva" ToRole="CheckinCheckout" />
+  </EntityType>
+  <Association Name="ReservaCheckinCheckout">
+    <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="1" />
+    <End Type="ModelSistemaHoteleiro.CheckinCheckout" Role="CheckinCheckout" Multiplicity="1" />
+  </Association>
+  <EntityType Name="TipoReserva">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Loja">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Usuario" Relationship="ModelSistemaHoteleiro.LojaUsuario" FromRole="Loja" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Loja" Relationship="ModelSistemaHoteleiro.LojaUsuario" FromRole="Usuario" ToRole="Loja" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="LojaId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="LojaUsuario">
+    <End Type="ModelSistemaHoteleiro.Loja" Role="Loja" Multiplicity="1" />
+    <End Type="ModelSistemaHoteleiro.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Loja">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="LojaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea154dce4d414607869c3376cfd7c0de" Name="Diagram1" ZoomLevel="74" >
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Pessoa" Width="1.5" PointX="4.625" PointY="6.25" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Cliente" Width="1.5" PointX="2.625" PointY="5.375" />
+        <InheritanceConnector EntityType="ModelSistemaHoteleiro.Cliente" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Funcionario" Width="1.5" PointX="6.75" PointY="6.375" />
+        <InheritanceConnector EntityType="ModelSistemaHoteleiro.Funcionario" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.ClienteTelefone" Width="1.5" PointX="0.5" PointY="5.375" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.ClienteClienteTelefone" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.CheckinCheckout" Width="1.5" PointX="4.625" PointY="3.75" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Reserva" Width="1.5" PointX="4.625" PointY="1" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.ReservaCheckinCheckout" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.TipoReserva" Width="1.5" PointX="2.625" PointY="1" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.TipoReservaReserva" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.ReservaServicos" Width="1.5" PointX="2.625" PointY="3.125" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.ReservaServicosReserva" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Servicos" Width="1.5" PointX="0.5" PointY="3.125" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.ServicosReservaServicos" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.ReservaCliente" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Quarto" Width="1.5" PointX="6.875" PointY="1" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.ReservaQuarto" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Hotel" Width="1.5" PointX="6.875" PointY="3.75" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.FuncionarioCheckinCheckout" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.QuartoHotel" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.HotelFuncionario" />
+        <EntityTypeShape EntityType="ModelSistemaHoteleiro.Categoria" Width="1.5" PointX="9" PointY="1.125" />
+        <AssociationConnector Association="ModelSistemaHoteleiro.CategoriaQuarto" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

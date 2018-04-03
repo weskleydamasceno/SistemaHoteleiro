@@ -1,0 +1,11 @@
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\ClassLibraryDiagrama.dll.config
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\ClassLibraryDiagrama.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\ClassLibraryDiagrama.pdb
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\EntityFramework.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\EntityFramework.xml
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\obj\Debug\ClassLibraryDiagrama.csprojResolveAssemblyReference.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\obj\Debug\ClassLibraryDiagrama.csproj.CoreCompileInputs.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\obj\Debug\ClassLibraryDiagrama.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\Modelagem\ClassLibraryDiagrama\ClassLibraryDiagrama\obj\Debug\ClassLibraryDiagrama.pdb

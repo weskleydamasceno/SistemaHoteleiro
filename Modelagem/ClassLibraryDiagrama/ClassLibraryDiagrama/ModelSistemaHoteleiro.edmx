@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ModelSistemaHoteleiro.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ModelSistemaHoteleiroTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelSistemaHoteleiro" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelSistemaHoteleiroContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PessoaSet" EntityType="ModelSistemaHoteleiro.Pessoa" />
+          <EntitySet Name="ClienteTelefoneSet" EntityType="ModelSistemaHoteleiro.ClienteTelefone" />
+          <AssociationSet Name="ClienteClienteTelefone" Association="ModelSistemaHoteleiro.ClienteClienteTelefone">
+            <End Role="Cliente" EntitySet="PessoaSet" />
+            <End Role="ClienteTelefone" EntitySet="ClienteTelefoneSet" />
+          </AssociationSet>
+          <EntitySet Name="CheckinCheckoutSet" EntityType="ModelSistemaHoteleiro.CheckinCheckout" />
+          <EntitySet Name="ReservaSet" EntityType="ModelSistemaHoteleiro.Reserva" />
+          <AssociationSet Name="ReservaCheckinCheckout" Association="ModelSistemaHoteleiro.ReservaCheckinCheckout">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="CheckinCheckout" EntitySet="CheckinCheckoutSet" />
+          </AssociationSet>
+          <EntitySet Name="TipoReservaSet" EntityType="ModelSistemaHoteleiro.TipoReserva" />
+          <AssociationSet Name="TipoReservaReserva" Association="ModelSistemaHoteleiro.TipoReservaReserva">
+            <End Role="TipoReserva" EntitySet="TipoReservaSet" />
+            <End Role="Reserva" EntitySet="ReservaSet" />
+          </AssociationSet>
+          <EntitySet Name="ReservaServicosSet" EntityType="ModelSistemaHoteleiro.ReservaServicos" />
+          <AssociationSet Name="ReservaServicosReserva" Association="ModelSistemaHoteleiro.ReservaServicosReserva">
+            <End Role="ReservaServicos" EntitySet="ReservaServicosSet" />
+            <End Role="Reserva" EntitySet="ReservaSet" />
+          </AssociationSet>
+          <EntitySet Name="ServicosSet" EntityType="ModelSistemaHoteleiro.Servicos" />
+          <AssociationSet Name="ServicosReservaServicos" Association="ModelSistemaHoteleiro.ServicosReservaServicos">
+            <End Role="Servicos" EntitySet="ServicosSet" />
+            <End Role="ReservaServicos" EntitySet="ReservaServicosSet" />
+          </AssociationSet>
+          <AssociationSet Name="ReservaCliente" Association="ModelSistemaHoteleiro.ReservaCliente">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="Cliente" EntitySet="PessoaSet" />
+          </AssociationSet>
+          <EntitySet Name="QuartoSet" EntityType="ModelSistemaHoteleiro.Quarto" />
+          <AssociationSet Name="ReservaQuarto" Association="ModelSistemaHoteleiro.ReservaQuarto">
+            <End Role="Reserva" EntitySet="ReservaSet" />
+            <End Role="Quarto" EntitySet="QuartoSet" />
+          </AssociationSet>
+          <EntitySet Name="HotelSet" EntityType="ModelSistemaHoteleiro.Hotel" />
+          <AssociationSet Name="FuncionarioCheckinCheckout" Association="ModelSistemaHoteleiro.FuncionarioCheckinCheckout">
+            <End Role="Funcionario" EntitySet="PessoaSet" />
+            <End Role="CheckinCheckout" EntitySet="CheckinCheckoutSet" />
+          </AssociationSet>
+          <AssociationSet Name="QuartoHotel" Association="ModelSistemaHoteleiro.QuartoHotel">
+            <End Role="Quarto" EntitySet="QuartoSet" />
+            <End Role="Hotel" EntitySet="HotelSet" />
+          </AssociationSet>
+          <AssociationSet Name="HotelFuncionario" Association="ModelSistemaHoteleiro.HotelFuncionario">
+            <End Role="Hotel" EntitySet="HotelSet" />
+            <End Role="Funcionario" EntitySet="PessoaSet" />
+          </AssociationSet>
+          <EntitySet Name="CategoriaSet" EntityType="ModelSistemaHoteleiro.Categoria" />
+          <AssociationSet Name="CategoriaQuarto" Association="ModelSistemaHoteleiro.CategoriaQuarto">
+            <End Role="Categoria" EntitySet="CategoriaSet" />
+            <End Role="Quarto" EntitySet="QuartoSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Cpf" Type="String" Nullable="false" />
+          <Property Name="DataNascimento" Type="String" Nullable="false" />
+          <Property Name="Rua" Type="String" Nullable="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente" BaseType="ModelSistemaHoteleiro.Pessoa">
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="ClienteTelefone" Relationship="ModelSistemaHoteleiro.ClienteClienteTelefone" FromRole="Cliente" ToRole="ClienteTelefone" />
+          <NavigationProperty Name="Reserva" Relationship="ModelSistemaHoteleiro.ReservaCliente" FromRole="Cliente" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Funcionario" BaseType="ModelSistemaHoteleiro.Pessoa">
+          <Property Name="Salario" Type="String" Nullable="false" />
+          <NavigationProperty Name="CheckinCheckout" Relationship="ModelSistemaHoteleiro.FuncionarioCheckinCheckout" FromRole="Funcionario" ToRole="CheckinCheckout" />
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hotel" Relationship="ModelSistemaHoteleiro.HotelFuncionario" FromRole="Funcionario" ToRole="Hotel" />
+        </EntityType>
+        <EntityType Name="ClienteTelefone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Telefone" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="ModelSistemaHoteleiro.ClienteClienteTelefone" FromRole="ClienteTelefone" ToRole="Cliente" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ClienteClienteTelefone">
+          <End Type="ModelSistemaHoteleiro.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.ClienteTelefone" Role="ClienteTelefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClienteTelefone">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CheckinCheckout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataHoraCheckin" Type="String" Nullable="false" />
+          <Property Name="DataHoraCheckout" Type="String" Nullable="false" />
+          <Property Name="TotalPagar" Type="String" Nullable="false" />
+          <NavigationProperty Name="Reserva" Relationship="ModelSistemaHoteleiro.ReservaCheckinCheckout" FromRole="CheckinCheckout" ToRole="Reserva" />
+          <Property Name="ReservaID" Type="Int32" Nullable="false" />
+          <Property Name="FuncionarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Funcionario" Relationship="ModelSistemaHoteleiro.FuncionarioCheckinCheckout" FromRole="CheckinCheckout" ToRole="Funcionario" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataHoraInicio" Type="String" Nullable="false" />
+          <Property Name="DataHoraFinal" Type="String" Nullable="false" />
+          <NavigationProperty Name="CheckinCheckout" Relationship="ModelSistemaHoteleiro.ReservaCheckinCheckout" FromRole="Reserva" ToRole="CheckinCheckout" />
+          <NavigationProperty Name="TipoReserva" Relationship="ModelSistemaHoteleiro.TipoReservaReserva" FromRole="Reserva" ToRole="TipoReserva" />
+          <Property Name="TipoReservaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ReservaServicos" Relationship="ModelSistemaHoteleiro.ReservaServicosReserva" FromRole="Reserva" ToRole="ReservaServicos" />
+          <Property Name="ClienteId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="ModelSistemaHoteleiro.ReservaCliente" FromRole="Reserva" ToRole="Cliente" />
+          <Property Name="QuartoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Quarto" Relationship="ModelSistemaHoteleiro.ReservaQuarto" FromRole="Reserva" ToRole="Quarto" />
+        </EntityType>
+        <Association Name="ReservaCheckinCheckout">
+          <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.CheckinCheckout" Role="CheckinCheckout" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CheckinCheckout">
+              <PropertyRef Name="ReservaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TipoReserva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva" Relationship="ModelSistemaHoteleiro.TipoReservaReserva" FromRole="TipoReserva" ToRole="Reserva" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="Valor" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="TipoReservaReserva">
+          <End Type="ModelSistemaHoteleiro.TipoReserva" Role="TipoReserva" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ReservaServicos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Qtde" Type="String" Nullable="false" />
+          <Property Name="Data" Type="String" Nullable="false" />
+          <Property Name="ReservaId" Type="Int32" Nullable="false" />
+          <Property Name="ServicosId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reserva" Relationship="ModelSistemaHoteleiro.ReservaServicosReserva" FromRole="ReservaServicos" ToRole="Reserva" />
+          <NavigationProperty Name="Servicos" Relationship="ModelSistemaHoteleiro.ServicosReservaServicos" FromRole="ReservaServicos" ToRole="Servicos" />
+        </EntityType>
+        <Association Name="ReservaServicosReserva">
+          <End Type="ModelSistemaHoteleiro.ReservaServicos" Role="ReservaServicos" Multiplicity="*" />
+          <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservaServicos">
+              <PropertyRef Name="ReservaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Servicos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="Valor" Type="String" Nullable="false" />
+          <NavigationProperty Name="ReservaServicos" Relationship="ModelSistemaHoteleiro.ServicosReservaServicos" FromRole="Servicos" ToRole="ReservaServicos" />
+        </EntityType>
+        <Association Name="ServicosReservaServicos">
+          <End Type="ModelSistemaHoteleiro.Servicos" Role="Servicos" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.ReservaServicos" Role="ReservaServicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservaServicos">
+              <PropertyRef Name="ServicosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReservaCliente">
+          <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="*" />
+          <End Type="ModelSistemaHoteleiro.Cliente" Role="Cliente" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Quarto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="MaxPessoas" Type="String" Nullable="false" />
+          <Property Name="Disponibilidade" Type="String" Nullable="false" />
+          <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reserva" Relationship="ModelSistemaHoteleiro.ReservaQuarto" FromRole="Quarto" ToRole="Reserva" />
+          <NavigationProperty Name="Hotel" Relationship="ModelSistemaHoteleiro.QuartoHotel" FromRole="Quarto" ToRole="Hotel" />
+          <NavigationProperty Name="Categoria" Relationship="ModelSistemaHoteleiro.CategoriaQuarto" FromRole="Quarto" ToRole="Categoria" />
+        </EntityType>
+        <Association Name="ReservaQuarto">
+          <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="*" />
+          <End Type="ModelSistemaHoteleiro.Quarto" Role="Quarto" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Quarto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="QuartoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Rua" Type="String" Nullable="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" />
+          <NavigationProperty Name="Quarto" Relationship="ModelSistemaHoteleiro.QuartoHotel" FromRole="Hotel" ToRole="Quarto" />
+          <NavigationProperty Name="Funcionario" Relationship="ModelSistemaHoteleiro.HotelFuncionario" FromRole="Hotel" ToRole="Funcionario" />
+        </EntityType>
+        <Association Name="FuncionarioCheckinCheckout">
+          <End Type="ModelSistemaHoteleiro.Funcionario" Role="Funcionario" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.CheckinCheckout" Role="CheckinCheckout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CheckinCheckout">
+              <PropertyRef Name="FuncionarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuartoHotel">
+          <End Type="ModelSistemaHoteleiro.Quarto" Role="Quarto" Multiplicity="*" />
+          <End Type="ModelSistemaHoteleiro.Hotel" Role="Hotel" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quarto">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HotelFuncionario">
+          <End Type="ModelSistemaHoteleiro.Hotel" Role="Hotel" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.Funcionario" Role="Funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="Valor" Type="String" Nullable="false" />
+          <NavigationProperty Name="Quarto" Relationship="ModelSistemaHoteleiro.CategoriaQuarto" FromRole="Categoria" ToRole="Quarto" />
+        </EntityType>
+        <Association Name="CategoriaQuarto">
+          <End Type="ModelSistemaHoteleiro.Categoria" Role="Categoria" Multiplicity="1" />
+          <End Type="ModelSistemaHoteleiro.Quarto" Role="Quarto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quarto">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ModelSistemaHoteleiro" />
+        <Alias Key="Target" Value="ModelSistemaHoteleiro.Store" />
+        <EntityContainerMapping CdmEntityContainer="ModelSistemaHoteleiroContainer" StorageEntityContainer="ModelSistemaHoteleiroTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
