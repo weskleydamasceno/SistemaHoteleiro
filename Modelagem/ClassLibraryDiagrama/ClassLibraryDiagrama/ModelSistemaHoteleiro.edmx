@@ -140,6 +140,7 @@
           <NavigationProperty Name="Cliente" Relationship="ModelSistemaHoteleiro.ReservaCliente" FromRole="Reserva" ToRole="Cliente" />
           <Property Name="QuartoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Quarto" Relationship="ModelSistemaHoteleiro.ReservaQuarto" FromRole="Reserva" ToRole="Quarto" />
+          <Property Name="Valor" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="ReservaCheckinCheckout">
           <End Type="ModelSistemaHoteleiro.Reserva" Role="Reserva" Multiplicity="1" />
