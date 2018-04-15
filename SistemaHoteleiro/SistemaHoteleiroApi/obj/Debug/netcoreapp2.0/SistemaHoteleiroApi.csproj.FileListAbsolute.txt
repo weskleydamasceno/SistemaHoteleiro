@@ -1,0 +1,13 @@
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\obj\Debug\netcoreapp2.0\SistemaHoteleiroApi.csprojResolveAssemblyReference.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\obj\Debug\netcoreapp2.0\SistemaHoteleiroApi.csproj.CoreCompileInputs.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\obj\Debug\netcoreapp2.0\SistemaHoteleiroApi.AssemblyInfoInputs.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\obj\Debug\netcoreapp2.0\SistemaHoteleiroApi.AssemblyInfo.cs
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiroApi.deps.json
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiroApi.runtimeconfig.json
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiroApi.runtimeconfig.dev.json
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiroApi.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiroApi.pdb
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiro.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\bin\Debug\netcoreapp2.0\SistemaHoteleiro.pdb
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\obj\Debug\netcoreapp2.0\SistemaHoteleiroApi.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiroApi\obj\Debug\netcoreapp2.0\SistemaHoteleiroApi.pdb

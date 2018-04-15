@@ -1,0 +1,9 @@
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\obj\Debug\netcoreapp2.0\SistemaHoteleiro.csprojResolveAssemblyReference.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\obj\Debug\netcoreapp2.0\SistemaHoteleiro.csproj.CoreCompileInputs.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\obj\Debug\netcoreapp2.0\SistemaHoteleiro.AssemblyInfoInputs.cache
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\obj\Debug\netcoreapp2.0\SistemaHoteleiro.AssemblyInfo.cs
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\bin\Debug\netcoreapp2.0\SistemaHoteleiro.deps.json
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\bin\Debug\netcoreapp2.0\SistemaHoteleiro.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\bin\Debug\netcoreapp2.0\SistemaHoteleiro.pdb
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\obj\Debug\netcoreapp2.0\SistemaHoteleiro.dll
+C:\Users\weskley\Documents\BCC\S5\LP2\SistemaHoteleiro\SistemaHoteleiro\SistemaHoteleiro\obj\Debug\netcoreapp2.0\SistemaHoteleiro.pdb
