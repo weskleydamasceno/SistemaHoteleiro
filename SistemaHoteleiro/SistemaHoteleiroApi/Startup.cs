@@ -31,8 +31,10 @@ namespace SistemaHoteleiroApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //especifica o banco de dados que é injetado no contêiner de serviço.
             services.AddDbContext<SistemaHoteleiroContexto>(options => options.UseSqlServer(Configuration.GetConnectionString("StoreDB")));
             services.AddMvc();
+
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<ICheckinCheckoutRepository, CheckinCheckoutRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
