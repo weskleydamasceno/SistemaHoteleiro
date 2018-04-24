@@ -26,7 +26,7 @@ namespace SistemaHoteleiro.Repositories
             return _contexto.Set<T>().FirstOrDefault(c => c.Id == id);
         }
 
-        public  virtual IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _contexto.Set<T>().ToList();
         }

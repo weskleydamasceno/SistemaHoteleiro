@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SistemaHoteleiro.Repositories
 {
-    class CategoriaRepository : RepositoryBase<Categoria>, ICategoriaRepository
+    public class CategoriaRepository : RepositoryBase<Categoria>, ICategoriaRepository
     {
         public CategoriaRepository(SistemaHoteleiroContexto contexto) : base(contexto)
         {

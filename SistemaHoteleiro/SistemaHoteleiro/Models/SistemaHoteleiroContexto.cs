@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +13,21 @@ namespace SistemaHoteleiro.Models
         public SistemaHoteleiroContexto(DbContextOptions<SistemaHoteleiroContexto> options) : base(options)
         {
 
+        }
+
+        public SistemaHoteleiroContexto()
+        {
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            optionsBuilder.UseSqlServer(config.GetConnectionString("StoreDB"));
         }
 
         public DbSet<Categoria> Categorias { get; set; }
@@ -25,5 +42,13 @@ namespace SistemaHoteleiro.Models
         public DbSet<ReservaServico> ReservaServicos { get; set; }
         public DbSet<Servico> Servicos { get; set; }
         public DbSet<TipoReserva> TiposReservas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CheckinCheckout>()
+                .HasOne(r => r.Reserva)
+                .WithMany(c => c.CheckinsCheckouts)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }
